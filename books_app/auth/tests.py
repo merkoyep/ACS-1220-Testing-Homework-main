@@ -1,16 +1,18 @@
 import os
 from unittest import TestCase
-
-from datetime import date
- 
 from books_app.extensions import app, db, bcrypt
-from books_app.models import Book, Author, User, Audience
+from books_app.models import Book, Author, User, Audience, Genre
+from datetime import date
+from books_app.auth.routes import auth
+from books_app.main.routes import main
+
 
 """
 Run these tests with the command:
 python -m unittest books_app.main.tests
 """
-
+app.register_blueprint(auth)
+app.register_blueprint(main)
 #################################################
 # Setup
 #################################################
